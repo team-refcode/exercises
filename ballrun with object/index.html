@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+    .ballpit {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 500px;
+      height: 500px;
+      border: solid 1px grey;
+      margin: 50px;
+    }
+    .ball {
+      position: absolute;
+      border-radius: 50%;
+    }
+    .controls {
+      position: absolute;
+      left: 50px;
+      top: 20px;
+      z-index: 2;
+    }
+    </style>
+  </head>
+  <body>
+    <div class="ballpit"></div>
+    <div class="controls">
+      <button onclick="" class="makeBall">Make a Ball</button>
+      <button onclick="move()" class="makeBall">Move Ball</button>
+    </div>
+    <script src="ballrun.js"></script>
+  </body>
+</html>
