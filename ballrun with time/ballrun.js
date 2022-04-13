@@ -48,14 +48,18 @@ function constructBall() {
   ballObject.position = ({x: 250, y: 250});
   ballObject.color = "blue";
   ballObject.velocity = ({x: 10, y: 0});
-  ballObject.domElement (document.querySelector(".ball"))
+  ballObject.domElement = document.querySelector(".ball");
 
   // Add the following starting styles to the domElement:
-  ballObject.domElement.width = ballObject.radius + "px";
-  ballObject.domElement.height = ballObject.radius + "px";
-  ballObject.domElement.backgroundColor = ballObject.color;
-  ballObject.domElement.top = ballObject.position.y + "px";
-  ballObject.domElement.left = ballObject.position.x + "px";
+  ballObject.domElement.style.width = ballObject.radius + "px";
+  ballObject.domElement.style.height = ballObject.radius + "px";
+  ballObject.domElement.style.backgroundColor = ballObject.color;
+  ballObject.domElement.style.top = ballObject.position.y + "px";
+  ballObject.domElement.style.left = ballObject.position.x + "px";
+
+  // use setInterval to run the move function every 500ms
+  // and then delete the "Move" button.
+
 }
 
 function move() {
@@ -75,9 +79,6 @@ function setPosition() {
 }
 
 function drawPosition() {
-  ballObject.domElement.top = position.y + "px";
-  ballObject.domElement.left = position.x + "px";
+  ballObject.domElement.style.top = ballObject.position.y + "px";
+  ballObject.domElement.style.left = ballObject.position.x + "px";
 }
-
-
-setInterval(move, 500);
