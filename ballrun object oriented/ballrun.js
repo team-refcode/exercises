@@ -1,7 +1,8 @@
 let allBalls = [];
 let moveAllBalls = () => {
   allBalls.forEach((ball) => {
-    ball.move(ball.velocity);
+    // This line will be run once on every single ball that is in `allBalls`.
+    // Call the `move` method on the ball. In this context the ball is `ball`.
   });
 }
 
@@ -47,39 +48,38 @@ class Helpers {
 }
 let helpers = new Helpers();
 
-
 class Ball {
   constructor() {
-    this.radius = helpers.getRandomNumber(5,90);
-    this.position = {x: 250-(this.radius/2), y: 250-(this.radius/2)};
-    this.color = helpers.getRandomColor();
-    this.domElement = this.buildBallDOMElement();
-    this.velocity = {x: helpers.getRandomNumber(-5,5), y: helpers.getRandomNumber(-5,5)}
-    this.domElement.addEventListener("click", ()=>{this.touch()});
+    // This is the constructor method. It has the same job as the `constructBall`
+    // function from the last lesson.
+    //   1. Copy over the content of `constructBall` into this method.
+    //   2. Change `ballObject` to `this`.
+    //   3. Instead of bringing in the `domElement` properties,  just put
+    //       this line once:
+    //       ballObject.domElement =  document.querySelector(".ball");
+
   }
 
-  move = (vector) => {
+  move = () => {
+    // Create newPos object and set the X  and Y values of this to velocity plus
+    // the current position.
     let newPos = {
-      x: this.position.x + vector.x,
-      y: this.position.y + vector.y,
+      x: 0,// instead of 0, this should be the x velocity plus the x position
+      y: 0,// instead of 0, this should be the y velocity plus the y position
     }
     this.setPosition(newPos);
     this.drawPosition(newPos);
   }
-  touch = () => {
-    if(this.velocity.x == 0 || this.velocity.y == 0) {
-      this.velocity ={x: helpers.getRandomNumber(-5,5), y: helpers.getRandomNumber(-5,5)};
-    } else {
-      this.velocity = {x: 0, y: 0};
-    }
-  }
+
   setPosition = (position) => {
     this.position = helpers.getNewBoundary().getWrappedPosition(position);
   }
+
   drawPosition = (position) => {
     this.domElement.style.left = this.position.x + "px";
     this.domElement.style.top = this.position.y + "px";
   }
+
   buildBallDOMElement = () => {
     let domElement = document.createElement("div");
     domElement.setAttribute("class", "ball");
@@ -95,7 +95,8 @@ class Ball {
 }
 
 let makeBall = () => {
-  allBalls.push(new Ball());
+  // make a new instance of the Ball class, and add it to the `allBalls` array.
 }
 
-setInterval(moveAllBalls, 100);
+// This is time:
+//setInterval(moveAllBalls, 100);
