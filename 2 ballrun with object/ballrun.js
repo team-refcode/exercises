@@ -7,7 +7,7 @@ function constructBall() {
   //      position ({x: 250, y: 250})
   //      color
   //      velocity ({x: 10, y: 0})
-  //      domElement (document.querySelector("#ball"))
+  //      domElement (document.querySelector(".ball"))
 
   // Add the following starting styles to the domElement:
   //  - width = radius + "px"
