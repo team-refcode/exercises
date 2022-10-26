@@ -56,7 +56,7 @@ class Ball {
     //   2. Change `ballObject` to `this`.
     //   3. Instead of bringing in the `domElement` properties,  just put
     //       this line once:
-    //       ballObject.domElement =  document.querySelector(".ball");
+    //       this.domElement = this.buildBallDOMElement();
 
   }
 
