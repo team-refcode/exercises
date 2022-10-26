@@ -1,4 +1,5 @@
 let allBalls = [];
+
 let moveAllBalls = () => {
   allBalls.forEach((ball) => {
     // This line will be run once on every single ball that is in `allBalls`.
